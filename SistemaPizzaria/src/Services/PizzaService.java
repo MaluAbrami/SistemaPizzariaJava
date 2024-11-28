@@ -82,8 +82,8 @@ public class PizzaService {
                 quantidade = p.getQuantidade();
             }
             
-            Pizza pizzaAtualizada = new PizzaQualquer(id, nome, valor, ingredientes, quantidade);
-            pizzaDao.atualizarPizza(pizzaAtualizada);
+            pizzaDao.atualizarPizza(id, nome, valor, ingredientes, quantidade);
+            System.out.println("Pizza atualizada com sucesso!");
         } else {
             System.out.println("Erro: nao foi possivel atualizar a pizza");
         }

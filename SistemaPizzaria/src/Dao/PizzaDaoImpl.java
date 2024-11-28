@@ -24,8 +24,15 @@ public class PizzaDaoImpl implements PizzaDao{
     }
     
     @Override
-    public void atualizarPizza(Pizza p) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void atualizarPizza(int id, String nome, double valor, String ingredientes, int quantidade) {
+        Pizza p = procurarPizzaPorId(id);
+        
+        if(p != null){
+            p.setNome(nome);
+            p.setValor(valor);
+            p.setIngredientes(ingredientes);
+            p.setQuantidade(quantidade);
+        }
     }
     
     @Override
