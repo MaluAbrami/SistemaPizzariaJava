@@ -1,15 +1,25 @@
 package SistemaDeMenus;
 
-import Dao.ClienteDaoImpl;
-import Dao.DiaTrabalhoDaoImpl;
-import Dao.PedidoDaoImpl;
-import Dao.PizzaDaoImpl;
 import Services.PizzaService;
+import Services.ClienteService;
+import Services.DiaTrabalhoService;
+import Services.PedidoService;
 import java.util.Scanner;
 
 public class Menus {
     private PizzaService pizzaService;
+    private PedidoService pedidoService;
+    private ClienteService clienteService;
+    private DiaTrabalhoService diaTrabalhoService;
     private Scanner scanner;
+
+    public Menus(PizzaService pizzaService, PedidoService pedidoService, ClienteService clienteService, DiaTrabalhoService diaTrabalhoService, Scanner scanner) {
+        this.pizzaService = pizzaService;
+        this.pedidoService = pedidoService;
+        this.clienteService = clienteService;
+        this.diaTrabalhoService = diaTrabalhoService;
+        this.scanner = scanner;
+    }
     
 //SECAO PRINCIPAL
     public void menuPrincipal() {
@@ -68,8 +78,7 @@ public class Menus {
 
             switch (op) {
                 case 1:
-                    System.out.println("Adicionando Pizza...");
-                    // lógica de adicionar pizza
+                    
                     break;
                 case 2:
                     System.out.println("Atualizando Pizza...");
