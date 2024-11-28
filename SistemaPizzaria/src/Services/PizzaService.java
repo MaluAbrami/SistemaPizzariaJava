@@ -1,13 +1,17 @@
 package Services;
 
+import Dao.PizzaDaoImpl;
+import Pizzas.PizzaQualquer;
 import java.util.Scanner;
+import sistemapizzaria.Pizza;
 
 public class PizzaService {
-    
+    private PizzaDaoImpl pizzaDao;
     private Scanner scanner;
 
-    public PizzaService(Scanner scanner) {
+    public PizzaService(Scanner scanner, PizzaDaoImpl pizzaDao) {
         this.scanner = scanner;
+        this.pizzaDao = pizzaDao;
     }
     
     private void adicionarPizza(){
@@ -25,6 +29,9 @@ public class PizzaService {
         System.out.println("Quantidade: ");
         int quantidade = scanner.nextInt();
         
-        
+        Pizza novaPizza = new PizzaQualquer(0, nome, valor, ingredientes, quantidade);
+        pizzaDao.adicionarPizza(novaPizza);
     }
+    
+    private void 
 }

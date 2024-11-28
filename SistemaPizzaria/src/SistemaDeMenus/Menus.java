@@ -4,21 +4,12 @@ import Dao.ClienteDaoImpl;
 import Dao.DiaTrabalhoDaoImpl;
 import Dao.PedidoDaoImpl;
 import Dao.PizzaDaoImpl;
+import Services.PizzaService;
 import java.util.Scanner;
 
 public class Menus {
-    private PizzaDaoImpl pizzaDao;
-    private PedidoDaoImpl pedidoDao;
-    private ClienteDaoImpl clienteDao;
-    private DiaTrabalhoDaoImpl diaTrabalhoDao;
+    private PizzaService pizzaService;
     private Scanner scanner;
-
-    public Menus(PizzaDaoImpl pizzaDao, PedidoDaoImpl pedidoDao, ClienteDaoImpl clienteDao, DiaTrabalhoDaoImpl diaTrabalhoDao) {
-        this.pizzaDao = pizzaDao;
-        this.pedidoDao = pedidoDao;
-        this.clienteDao = clienteDao;
-        this.diaTrabalhoDao = diaTrabalhoDao;
-    }
     
 //SECAO PRINCIPAL
     public void menuPrincipal() {
