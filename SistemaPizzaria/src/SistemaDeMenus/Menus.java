@@ -11,8 +11,7 @@ public class Menus {
     private PedidoDaoImpl pedidoDao;
     private ClienteDaoImpl clienteDao;
     private DiaTrabalhoDaoImpl diaTrabalhoDao;
-    
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
 
     public Menus(PizzaDaoImpl pizzaDao, PedidoDaoImpl pedidoDao, ClienteDaoImpl clienteDao, DiaTrabalhoDaoImpl diaTrabalhoDao) {
         this.pizzaDao = pizzaDao;
@@ -100,24 +99,6 @@ public class Menus {
                     System.out.println("Opção inválida! Tente novamente.");
             }
         } while (op != 5);
-    }
-
-    private void adicionarPizza(){
-        System.out.println("\n\tAdicionar nova Piza");
-        
-        System.out.println("Nome da Pizza: ");
-        String nome = scanner.nextLine();
-        
-        System.out.println("Valor da Pizza: ");
-        double valor = scanner.nextDouble();
-        
-        System.out.println("Ingredientes: ");
-        String ingredientes = scanner.nextLine();
-        
-        System.out.println("Quantidade: ");
-        int quantidade = scanner.nextInt();
-        
-        
     }
     
 //SECAO DOS PEDIDOS
