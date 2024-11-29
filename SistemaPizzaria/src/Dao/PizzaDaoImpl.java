@@ -1,5 +1,8 @@
 package Dao;
 
+import Pizzas.Caipira;
+import Pizzas.Calabresa;
+import Pizzas.QuatroQueijos;
 import java.util.ArrayList;
 import java.util.List;
 import sistemapizzaria.Pizza;
@@ -9,9 +12,7 @@ public class PizzaDaoImpl implements PizzaDao{
     
     @Override
     public void adicionarPizza(Pizza p){
-        int id = pizzas.getLast().getId() + 1;
         pizzas.add(p);
-        p.setId(id);
     }
     
     @Override

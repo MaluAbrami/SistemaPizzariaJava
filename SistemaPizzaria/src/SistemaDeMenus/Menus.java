@@ -44,7 +44,7 @@ public class Menus {
                     System.out.println("Saindo do sistema...");
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println("Opcao invalida! Tente novamente.");
             }
         } while (op != 5);
 
@@ -58,7 +58,7 @@ public class Menus {
         System.out.println("3. Gerenciar Clientes");
         System.out.println("4. Gerenciar Dia de Trabalho");
         System.out.println("5. Sair");
-        System.out.print("Escolha uma opção: ");
+        System.out.print("Escolha uma opcao: ");
         return scanner.nextInt();
     }
 
@@ -73,30 +73,27 @@ public class Menus {
             System.out.println("3. Excluir Pizza");
             System.out.println("4. Listar Pizzas");
             System.out.println("5. Voltar ao Menu Principal");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
             op = scanner.nextInt();
 
             switch (op) {
                 case 1:
-                    
+                    pizzaService.adicionarPizza();
                     break;
                 case 2:
-                    System.out.println("Atualizando Pizza...");
-                    // lógica de atualizar pizza
+                    pizzaService.atualizarPizza();
                     break;
                 case 3:
-                    System.out.println("Excluindo Pizza...");
-                    // lógica de excluir pizza
+                    pizzaService.deletarPizza();
                     break;
                 case 4:
-                    System.out.println("Listando Pizzas...");
-                    // lógica de listar pizzas
+                    pizzaService.listarPizzas();
                     break;
                 case 5:
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println("Opcao invalida! Tente novamente.");
             }
         } while (op != 5);
     }
@@ -112,7 +109,7 @@ public class Menus {
             System.out.println("4. Listar Pedidos por Cliente");
             System.out.println("5. Listar Pedidos por Dia de Trabalho");
             System.out.println("6. Voltar ao Menu Principal");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
             op = scanner.nextInt();
 
             switch (op) {
@@ -140,7 +137,7 @@ public class Menus {
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println("Opcao invalida! Tente novamente.");
             }
         } while (op != 6);
     }
@@ -156,7 +153,7 @@ public class Menus {
             System.out.println("3. Excluir Cliente");
             System.out.println("4. Listar Clientes");
             System.out.println("5. Voltar ao Menu Principal");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
             op = scanner.nextInt();
 
             switch (op) {
@@ -180,7 +177,7 @@ public class Menus {
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println("Opcao invalida! Tente novamente.");
             }
         } while (op != 5);
     }
@@ -195,7 +192,7 @@ public class Menus {
             System.out.println("2. Encerrar Dia de Trabalho");
             System.out.println("3. Consultar Relatórios do Dia");
             System.out.println("4. Voltar ao Menu Principal");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
             op = scanner.nextInt();
 
             switch (op) {
@@ -215,7 +212,7 @@ public class Menus {
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println("Opcao invalida! Tente novamente.");
             }
         } while (op != 4);
         
