@@ -122,26 +122,24 @@ public class Menus {
 
             switch (op) {
                 case 1:
-                    System.out.println("Criando Pedido...");
-                    // lógica de criar pedido
+                    pedidoService.adicionarPedido();
                     break;
                 case 2:
-                    System.out.println("Atualizando Pedido...");
-                    // lógica de atualizar pedido
+                    pedidoService.atualizarPedido();
                     break;
                 case 3:
-                    System.out.println("Cancelando Pedido...");
-                    // lógica de cancelar pedido
+                    pedidoService.deletarPedido();
                     break;
                 case 4:
-                    System.out.println("Listando Pedidos por Cliente...");
-                    // lógica de listar pedidos por cliente
+                    pedidoService.listarPedidosPorCliente();
                     break;
                 case 5:
                     System.out.println("Listando Pedidos por Dia de Trabalho...");
                     // lógica de listar pedidos por dia de trabalho
                     break;
                 case 6:
+                    System.out.println("Listando Todos os Pedidos...");
+                case 7:
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:

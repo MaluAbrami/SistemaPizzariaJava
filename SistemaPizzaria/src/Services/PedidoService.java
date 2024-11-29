@@ -134,4 +134,13 @@ public class PedidoService {
         System.out.println("\n\tLista de Pedidos");
         System.out.println(pedidoDao.listAllPedidos());
     }
+    
+    public void listarPedidosPorCliente(){
+        System.out.println("\n\tLista dos Pedidos do Cliente");
+        
+        System.out.print("\nInforme o CPF do cliente: ");
+        String cpf = scanner.nextLine();
+        
+        System.out.println(pedidoDao.listAllPedidosPorCliente(cpf));
+    }
 }
