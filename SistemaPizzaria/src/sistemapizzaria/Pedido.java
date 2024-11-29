@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
+    private static int contadorId = 0; //ID sera gerado de forma automatica
     private int id;
     private Cliente cliente;
     private List<Pizza> pizzas = new ArrayList();
     private double valorPedido;
     
-    public Pedido(int id){
-        this.id = id;
+    public Pedido(){
+        this.id = contadorId++;
     }
     
     public int getId() {

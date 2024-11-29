@@ -9,6 +9,6 @@ public interface PedidoDao {
     void atualizarPedido(Pedido p);
     boolean deletePedido(int id);
     String listAllPedidos();
-    List<Pedido> procurarPedidoPorClienteId(int clienteId);
-    String listAllPedidosPorCliente(int clienteId);
+    List<Pedido> procurarPedidoPorClienteCpf(String cpf);
+    String listAllPedidosPorCliente(String cpf);
 }

@@ -59,21 +59,21 @@ public class PedidoDaoImpl implements PedidoDao{
     }
     
     @Override
-    public List<Pedido> procurarPedidoPorClienteId(int clienteId){ //RELATÓRIO PEDIDO POR CLIENTE
+    public List<Pedido> procurarPedidoPorClienteCpf(String cpf){ //RELATÓRIO PEDIDO POR CLIENTE
         List<Pedido> pedidosPorCliente = new ArrayList(); 
         
         for(Pedido p: pedidos){
-            if(p.getCliente().getId() == clienteId)
+            if(p.getCliente().getCpf().equals(cpf))
                 pedidosPorCliente.add(p);
         }
         return pedidosPorCliente;
     }
     
     @Override
-    public String listAllPedidosPorCliente(int clienteId){
+    public String listAllPedidosPorCliente(String cpf){
         StringBuilder report = new StringBuilder();
         
-        List<Pedido> pedidosCliente = procurarPedidoPorClienteId(clienteId);
+        List<Pedido> pedidosCliente = procurarPedidoPorClienteCpf(cpf);
         
         if (pedidosCliente.isEmpty()) {
             return "Nenhum pedido cadastrado.";
