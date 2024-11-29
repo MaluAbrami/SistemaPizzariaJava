@@ -1,5 +1,6 @@
-package Dao;
+package DaoImpl;
 
+import Dao.PizzaDao;
 import java.util.ArrayList;
 import java.util.List;
 import sistemapizzaria.Pizza;
