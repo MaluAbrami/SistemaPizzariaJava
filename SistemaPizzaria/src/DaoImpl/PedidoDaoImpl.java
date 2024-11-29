@@ -26,7 +26,19 @@ public class PedidoDaoImpl implements PedidoDao{
     
     @Override
     public void atualizarPedido(int id, Cliente cliente, List<Pizza> pizzas) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        Pedido p = procurarPedidoPorId(id);
+        
+        if(p != null){
+            p.setCliente(cliente); //atualiza cliente
+            
+            for(Pizza pizzaParaRemover: p.getPizzas()){ //Remove pizzas antigas
+                p.getPizzas().remove(pizzaParaRemover);
+            }
+            
+            for(Pizza pizzaAtualizada: pizzas){ //Adiciona novas pizzas, o que garante que o valor do pedido também será atualizado
+                p.adicionarPizza(pizzaAtualizada);
+            }
+        }
     }
     
     @Override

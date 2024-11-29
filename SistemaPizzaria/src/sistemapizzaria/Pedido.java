@@ -42,4 +42,8 @@ public class Pedido {
     public Cliente getCliente(){
         return cliente;
     }
+    
+    public void setCliente(Cliente cliente){ //Para atualizacoes
+        this.cliente = cliente;
+    }
 }
