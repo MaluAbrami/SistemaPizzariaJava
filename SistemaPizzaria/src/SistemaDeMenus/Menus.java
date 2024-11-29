@@ -4,6 +4,7 @@ import Services.PizzaService;
 import Services.ClienteService;
 import Services.DiaTrabalhoService;
 import Services.PedidoService;
+import Services.PizzariaService;
 import java.util.Scanner;
 
 public class Menus {
@@ -11,13 +12,15 @@ public class Menus {
     private PedidoService pedidoService;
     private ClienteService clienteService;
     private DiaTrabalhoService diaTrabalhoService;
+    private PizzariaService pizzariaService;
     private Scanner scanner;
 
-    public Menus(PizzaService pizzaService, PedidoService pedidoService, ClienteService clienteService, DiaTrabalhoService diaTrabalhoService, Scanner scanner) {
+    public Menus(PizzaService pizzaService, PedidoService pedidoService, ClienteService clienteService, DiaTrabalhoService diaTrabalhoService, PizzariaService pizzariaService, Scanner scanner) {
         this.pizzaService = pizzaService;
         this.pedidoService = pedidoService;
         this.clienteService = clienteService;
         this.diaTrabalhoService = diaTrabalhoService;
+        this.pizzariaService = pizzariaService;
         this.scanner = scanner;
     }
     
@@ -41,6 +44,10 @@ public class Menus {
                     menuDiasTrabalho();
                     break;
                 case 5:
+                    System.out.println("\tRelatorio dos Dias de Trabalho da Pizzaria");
+                    pizzariaService.obterRelatorioDiasTrabalhados();
+                    break;
+                case 6:
                     System.out.println("Saindo do sistema...");
                     break;
                 default:
@@ -57,7 +64,8 @@ public class Menus {
         System.out.println("2. Gerenciar Pedidos");
         System.out.println("3. Gerenciar Clientes");
         System.out.println("4. Gerenciar Dia de Trabalho");
-        System.out.println("5. Sair");
+        System.out.println("5.Gerar Relatorio dos Dias de Trabalho");
+        System.out.println("6. Sair");
         System.out.print("Escolha uma opcao: ");
         return scanner.nextInt();
     }

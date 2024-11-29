@@ -7,5 +7,5 @@ public interface PizzariaDao {
     void adicionarPizzaria(Pizzaria p);
     void atualizarPizzaria(Pizzaria p);
     void adicionarDiaTrabalho(DiaTrabalho d);
-    void obterRelatorioDiasTrabalhados(Pizzaria p);
+    String obterRelatorioDiasTrabalhados();
 }

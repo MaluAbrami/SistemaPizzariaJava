@@ -25,8 +25,9 @@ public class PizzariaDaoImpl implements PizzariaDao{
     }
     
     @Override
-    public void obterRelatorioDiasTrabalhados(Pizzaria pizzaria) {
+    public String obterRelatorioDiasTrabalhados() {
         StringBuilder report = new StringBuilder();
+        double faturamentoTotal = 0;
         
         if(diasTrabalhados.isEmpty())
             System.out.println("Nao existe nenhum dia de trabalho");
@@ -39,10 +40,13 @@ public class PizzariaDaoImpl implements PizzariaDao{
                         report.append("\n\nID do pedido: ").append(p.getId())
                                 .append("\nDono do Pedido: ").append(p.getCliente().getNome())
                                 .append("\nValor do Pedido: ").append(p.getValorPedido());
+                        faturamentoTotal += p.getValorPedido();
                     }
-                    report.append("\n\tFaturamento total da Pizzaria: ").append(pizzaria.getFaturamentoTotal());
+                    report.append("\n\tFaturamento total da Pizzaria: ").append(faturamentoTotal);
                     
         }
+        
+        return report.toString();
     }
     
 }

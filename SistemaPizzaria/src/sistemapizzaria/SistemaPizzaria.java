@@ -4,6 +4,7 @@ import Dao.ClienteDaoImpl;
 import Dao.PizzaDaoImpl;
 import Dao.PedidoDaoImpl;
 import Dao.DiaTrabalhoDaoImpl;
+import Dao.PizzariaDaoImpl;
 import Pizzas.Caipira;
 import Pizzas.Calabresa;
 import Pizzas.QuatroQueijos;
@@ -11,6 +12,7 @@ import Services.ClienteService;
 import Services.DiaTrabalhoService;
 import Services.PedidoService;
 import Services.PizzaService;
+import Services.PizzariaService;
 import SistemaDeMenus.Menus;
 import java.util.Scanner;
 
@@ -28,18 +30,20 @@ public class SistemaPizzaria {
         PedidoDaoImpl pedidoDao = new PedidoDaoImpl();
         DiaTrabalhoDaoImpl diaTrabalhoDao = new DiaTrabalhoDaoImpl();
         ClienteDaoImpl clienteDao = new ClienteDaoImpl();
+        PizzariaDaoImpl pizzariaDao = new PizzariaDaoImpl();
         
         PizzaService pizzaService = new PizzaService(scanner, pizzaDao);
         PedidoService pedidoService = new PedidoService();
         ClienteService clienteService = new ClienteService();
         DiaTrabalhoService diaTrabalhoService = new DiaTrabalhoService();
+        PizzariaService pizzariaService = new PizzariaService();
         
         //ADICIONANDO AS PIZZAS
         pizzaDao.adicionarPizza(calabresa);
         pizzaDao.adicionarPizza(caipira);
         pizzaDao.adicionarPizza(quatroQueijos);
         
-        Menus menus = new Menus(pizzaService, pedidoService, clienteService, diaTrabalhoService, scanner);
+        Menus menus = new Menus(pizzaService, pedidoService, clienteService, diaTrabalhoService, pizzariaService, scanner);
         menus.menuPrincipal();
         
         scanner.close();
