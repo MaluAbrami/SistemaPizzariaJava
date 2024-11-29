@@ -28,10 +28,12 @@ public class PizzaService {
         scanner.nextLine();
         Pizza p = pizzaDao.procurarPizzaPorId(id);
         while(p != null){
-            System.out.println("ID ja cadastrado! Confira os ID's ja cadastrados abaixo");
+            System.out.println("\nID ja cadastrado!\nPressione 'Enter' para conferir os ID's ja cadastrados");
+            scanner.nextLine();
             System.out.println(pizzaDao.listAllPizzas());
             System.out.println("Agora tente novamente por favor: ");
             id = scanner.nextInt();
+            scanner.nextLine();
             p = pizzaDao.procurarPizzaPorId(id);
         }
         

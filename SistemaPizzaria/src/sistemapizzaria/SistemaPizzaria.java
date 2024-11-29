@@ -34,6 +34,7 @@ public class SistemaPizzaria {
         ClienteService clienteService = new ClienteService();
         DiaTrabalhoService diaTrabalhoService = new DiaTrabalhoService();
         
+        //ADICIONANDO AS PIZZAS
         pizzaDao.adicionarPizza(calabresa);
         pizzaDao.adicionarPizza(caipira);
         pizzaDao.adicionarPizza(quatroQueijos);

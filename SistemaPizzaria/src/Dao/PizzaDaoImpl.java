@@ -1,8 +1,5 @@
 package Dao;
 
-import Pizzas.Caipira;
-import Pizzas.Calabresa;
-import Pizzas.QuatroQueijos;
 import java.util.ArrayList;
 import java.util.List;
 import sistemapizzaria.Pizza;
