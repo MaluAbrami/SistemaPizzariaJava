@@ -13,9 +13,9 @@ public class ClienteDaoImpl implements ClienteDao{
     }
     
     @Override
-    public Cliente procurarClientePorId(int id){
+    public Cliente procurarClientePorCpf(String cpf){
         for(Cliente c: clientes){
-            if(c.getId() == id)
+            if(c.getCpf().equals(cpf))
                 return c;
         }
         return null;
@@ -27,8 +27,8 @@ public class ClienteDaoImpl implements ClienteDao{
     }
     
     @Override
-    public boolean deleteCliente(int id){
-        Cliente c = procurarClientePorId(id);
+    public boolean deleteCliente(String cpf){
+        Cliente c = procurarClientePorCpf(cpf);
         
         if(c != null){
             clientes.remove(c);
@@ -46,7 +46,7 @@ public class ClienteDaoImpl implements ClienteDao{
         }
         
         for(Cliente c: clientes){
-            report.append("\nCliente de ID: ").append(c.getId())
+            report.append("\nCliente de ID: ").append(c.getCpf())
                 .append("\nNome: ").append(c.getNome())
                 .append("\nTelefone: ").append(c.getTelefone());
         }

@@ -1,22 +1,22 @@
 package sistemapizzaria;
 
 public class Cliente {
-    private int id;
+    private String cpf;
     private String nome;
     private String telefone;
 
-    public Cliente(int id, String nome, String telefone) {
-        this.id = id;
+    public Cliente(String cpf, String nome, String telefone) {
+        this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
     }
 
-    public int getId() {
-        return id;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {

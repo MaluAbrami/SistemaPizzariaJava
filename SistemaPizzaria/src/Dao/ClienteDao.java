@@ -4,8 +4,8 @@ import sistemapizzaria.Cliente;
 
 public interface ClienteDao {
     void adicionarCliente(Cliente cliente);
-    Cliente procurarClientePorId(int id);
+    Cliente procurarClientePorCpf(String cpf);
     void atualizarCliente(Cliente cliente);
-    boolean deleteCliente(int id);
+    boolean deleteCliente(String cpf);
     String listAllClientes(); 
 }
