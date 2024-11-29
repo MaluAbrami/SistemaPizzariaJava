@@ -114,4 +114,24 @@ public class PedidoService {
             System.out.println("Erro: nao foi possivel atualizar o pedido");
         }
     }
+    
+    public void deletarPedido(){
+        System.out.println("\n\tDeletando um Pedido");
+        
+        System.out.println("Informe o id do pedido que deseja deletar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        boolean resp = pedidoDao.deletePedido(id);
+        
+        if(resp){
+            System.out.println("Pedido deletado com sucesso!");
+        } else{
+            System.out.println("Erro: nao foi possivel deletar o pedido!");
+        }
+    }
+    
+    public void listarPedidos(){
+        System.out.println("\n\tLista de Pedidos");
+        System.out.println(pedidoDao.listAllPedidos());
+    }
 }
