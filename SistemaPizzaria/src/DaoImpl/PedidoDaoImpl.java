@@ -3,6 +3,7 @@ package DaoImpl;
 import Dao.PedidoDao;
 import java.util.ArrayList;
 import java.util.List;
+import sistemapizzaria.Cliente;
 import sistemapizzaria.Pedido;
 import sistemapizzaria.Pizza;
 
@@ -24,7 +25,7 @@ public class PedidoDaoImpl implements PedidoDao{
     }
     
     @Override
-    public void atualizarPedido(Pedido p) {
+    public void atualizarPedido(int id, Cliente cliente, List<Pizza> pizzas) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
     

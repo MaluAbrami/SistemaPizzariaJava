@@ -1,6 +1,6 @@
 package Services;
 
-import Dao.PizzaDaoImpl;
+import DaoImpl.PizzaDaoImpl;
 import Pizzas.PizzaQualquer;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;

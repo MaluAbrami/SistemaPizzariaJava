@@ -1,8 +1,8 @@
 package Services;
 
-import Dao.PedidoDaoImpl;
-import Dao.ClienteDaoImpl;
-import Dao.PizzaDaoImpl;
+import DaoImpl.PedidoDaoImpl;
+import DaoImpl.ClienteDaoImpl;
+import DaoImpl.PizzaDaoImpl;
 import static java.lang.Integer.parseInt;
 import java.util.List;
 import java.util.Scanner;
@@ -24,9 +24,7 @@ public class PedidoService {
     public void adicionarPedido(){
         String cpf;
         Cliente cliente;
-        List<Pizza> pizzas = null;
-        double valorPedido;
-        int resp = 1, pizzaId;
+        int resp = 1;
         
         System.out.println("\n\tAdicionar novo Pedido");
         
@@ -55,8 +53,65 @@ public class PedidoService {
             }
             
             pedidoDao.adicionarPedido(novoPedido); //Adiciona o novo pedido
+            System.out.println("Pedido adicionado com sucesso!");
         } else{
             System.out.println("Erro: cliente com o cpf informado nao existe");
+        }
+    }
+    
+    public void atualizarPedido() {
+        System.out.println("\n\tAtualiza Pedido");
+        
+        System.out.println("Id do Pedido que deseja atualizar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        Pedido p = pedidoDao.procurarPedidoPorId(id);
+        
+        if (p != null) {
+            String cpf;
+            Cliente cliente = null;
+            List<Pizza> pizzas = null;
+            int resp;
+            
+            System.out.print("Alterar CPF do cliente?(1-sim/2-nao)");
+            resp = parseInt(scanner.nextLine());
+            if (resp == 1) {
+                System.out.print("\nInforme o CPF do Cliente: ");
+                cpf = scanner.nextLine();
+                cliente = clienteDao.procurarClientePorCpf(cpf);
+                if(cliente != null)
+                    System.out.println("Cliente atualizado com sucesso!");
+                else
+                    cliente = p.getCliente();
+            }
+
+            System.out.print("Alterar pizzas do pedido? (1-sim/2-nao)");
+            resp = parseInt(scanner.nextLine());
+            if (resp == 1) {
+                while (resp == 1) {
+                    System.out.print("\nInforme o ID da pizza que deseja: ");
+                    Pizza pizza = pizzaDao.procurarPizzaPorId(parseInt(scanner.nextLine()));
+                    if (pizza != null) {
+                        pizzas.add(pizza);
+                        System.out.println("Pizza de " + pizza.getNome() + " adicionada ao Pedido!");
+                        System.out.print("\nQuer adicionar mais alguma pizza ao pedido? (1-sim/2-nao)");
+                        resp = parseInt(scanner.nextLine());
+                    } else {
+                        System.out.println("Erro: Nenhuma pizza cadastrada com o id informado!");
+                        System.out.println("Pressione 'Enter' e confira as pizzas cadastradas");
+                        scanner.nextLine();
+                        System.out.println(pizzaDao.listAllPizzas());
+                        System.out.println("Tente novamente por favor");
+                    }
+                }
+            } else {
+                pizzas = p.getPizzas();
+            }
+            
+            pedidoDao.atualizarPedido(p.getId(), cliente, pizzas);
+            System.out.println("Pedido atualizado com sucesso!");
+        } else {
+            System.out.println("Erro: nao foi possivel atualizar o pedido");
         }
     }
 }

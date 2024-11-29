@@ -1,10 +1,10 @@
 package sistemapizzaria;
 
-import Dao.ClienteDaoImpl;
-import Dao.PizzaDaoImpl;
-import Dao.PedidoDaoImpl;
-import Dao.DiaTrabalhoDaoImpl;
-import Dao.PizzariaDaoImpl;
+import DaoImpl.ClienteDaoImpl;
+import DaoImpl.PizzaDaoImpl;
+import DaoImpl.PedidoDaoImpl;
+import DaoImpl.DiaTrabalhoDaoImpl;
+import DaoImpl.PizzariaDaoImpl;
 import Pizzas.Caipira;
 import Pizzas.Calabresa;
 import Pizzas.QuatroQueijos;

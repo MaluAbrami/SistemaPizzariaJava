@@ -1,6 +1,6 @@
 package Services;
 
-import Dao.PizzariaDaoImpl;
+import DaoImpl.PizzariaDaoImpl;
 
 public class PizzariaService {
     private PizzariaDaoImpl pizzariaDao;
