@@ -12,5 +12,4 @@ public interface PedidoDao {
     boolean deletePedido(int id);
     String listAllPedidos();
     List<Pedido> procurarPedidoPorClienteCpf(String cpf);
-    String listAllPedidosPorCliente(String cpf);
 }

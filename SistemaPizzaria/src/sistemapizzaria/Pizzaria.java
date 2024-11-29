@@ -21,5 +21,4 @@ public class Pizzaria {
     public void adicionarDiaTrabalho(DiaTrabalho d){
         diasDeTrabalho.add(d);
     }
-    
 }

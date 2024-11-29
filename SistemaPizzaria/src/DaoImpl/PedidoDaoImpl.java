@@ -82,26 +82,4 @@ public class PedidoDaoImpl implements PedidoDao{
         }
         return pedidosPorCliente;
     }
-    
-    @Override
-    public String listAllPedidosPorCliente(String cpf){
-        StringBuilder report = new StringBuilder();
-        
-        List<Pedido> pedidosCliente = procurarPedidoPorClienteCpf(cpf);
-        
-        if (pedidosCliente.isEmpty()) {
-            return "Nenhum pedido cadastrado.";
-        }
-        
-        for(Pedido p: pedidosCliente){
-            report.append("\nID do pedido: ").append(p.getId())
-                  .append("Valor do Pedido: ").append(p.getValorPedido())
-                .append("\nPizzas do pedido: ");
-                for(Pizza pizza: p.getPizzas()){
-                    report.append(pizza.getNome()).append(" ; ");
-                }
-        }
-        
-        return report.toString();
-    }
 }
