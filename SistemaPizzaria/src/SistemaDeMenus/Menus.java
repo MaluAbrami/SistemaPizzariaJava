@@ -64,7 +64,7 @@ public class Menus {
         System.out.println("2. Gerenciar Pedidos");
         System.out.println("3. Gerenciar Clientes");
         System.out.println("4. Gerenciar Dia de Trabalho");
-        System.out.println("5.Gerar Relatorio dos Dias de Trabalho");
+        System.out.println("5.Gerar Relatorio de Todos os Dias de Trabalho");
         System.out.println("6. Sair");
         System.out.print("Escolha uma opcao: ");
         return scanner.nextInt();
@@ -190,27 +190,28 @@ public class Menus {
         int op;
         do {
             System.out.println("\n--- Gerenciar Dia de Trabalho ---");
-            System.out.println("1. Iniciar Dia de Trabalho");
-            System.out.println("2. Encerrar Dia de Trabalho");
-            System.out.println("3. Consultar Relatórios do Dia");
-            System.out.println("4. Voltar ao Menu Principal");
+            System.out.println("1. Adicionar um Dia de Trabalho");
+            System.out.println("2. Atualizar um Dia de Trabalho");
+            System.out.println("3. Listar Todos os Dias de Trabalho");
+            System.out.println("4. Listar Todos os Dias de Trabalho");
+            System.out.println("5. Voltar ao Menu Principal");
             System.out.print("Escolha uma opcao: ");
             op = scanner.nextInt();
 
             switch (op) {
                 case 1:
-                    System.out.println("Iniciando Dia de Trabalho...");
-                    // lógica de iniciar dia de trabalho
+                    diaTrabalhoService.adicionarDiaTrabalho();
                     break;
                 case 2:
-                    System.out.println("Encerrando Dia de Trabalho...");
-                    // lógica de encerrar dia de trabalho
+                    diaTrabalhoService.atualizarDiaTrabalho();
                     break;
                 case 3:
-                    System.out.println("Consultando Relatórios do Dia...");
-                    // lógica de consultar relatórios do dia
+                    
                     break;
                 case 4:
+                    
+                    break;
+                case 5:
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:

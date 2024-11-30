@@ -3,6 +3,8 @@ package Services;
 import DaoImpl.DiaTrabalhoDaoImpl;
 import DaoImpl.PedidoDaoImpl;
 import static java.lang.Integer.parseInt;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import sistemapizzaria.DiaTrabalho;
 import sistemapizzaria.Pedido;
@@ -70,6 +72,7 @@ public class DiaTrabalhoService {
     
     public void atualizarDiaTrabalho(){
         int resp;
+        List<Pedido> pedidos = new ArrayList();
         
         System.out.println("\n\tAtualizar Dia de Trabalho");
         
@@ -93,7 +96,7 @@ public class DiaTrabalhoService {
                         System.out.print("\nContinuar adicionando pedidos? (1-sim/2-nao)");
                         resp = parseInt(scanner.nextLine());
                     } else{
-                        diaTrabalho.adicionarPedido(pedido);
+                        pedidos.add(pedido);
                         System.out.print("\nDeseja adicionar mais algum pedido? (1-sim/2-nao)");
                         resp = parseInt(scanner.nextLine());
                     }
@@ -103,8 +106,15 @@ public class DiaTrabalhoService {
                     resp = parseInt(scanner.nextLine());
                 } 
             }
+            
+            diaTrabalhoDao.atualizarDiaTrabalho(diaTrabalho.getId(), pedidos);
+            System.out.println("Dia de trabalho atualizado com sucesso!"); 
         } else{
             System.out.println("Erro: nao foi possivel atualizar o dia de trabalho");
         }
+    }
+    
+    public void deletarDiaTrabalho(){
+        
     }
 }

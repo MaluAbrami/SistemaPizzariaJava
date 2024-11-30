@@ -24,8 +24,12 @@ public class DiaTrabalhoDaoImpl implements DiaTrabalhoDao{
     }
     
     @Override
-    public void atualizarDiaTrabalho(DiaTrabalho d) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void atualizarDiaTrabalho(int id, List<Pedido> pedidos) {
+        DiaTrabalho dia = procurarDiaTrabalhoPorId(id);
+        
+        for(Pedido p: pedidos){
+            dia.adicionarPedido(p);
+        }
     }
     
     @Override
