@@ -60,7 +60,7 @@ public class PedidoService {
     }
     
     public void atualizarPedido() {
-        System.out.println("\n\tAtualiza Pedido");
+        System.out.println("\n\rAtualizar Pedido");
         
         System.out.println("Id do Pedido que deseja atualizar: ");
         int id = scanner.nextInt();

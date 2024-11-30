@@ -1,6 +1,7 @@
 package Dao;
 
 import sistemapizzaria.DiaTrabalho;
+import sistemapizzaria.Pedido;
 
 public interface DiaTrabalhoDao {
     void adicionarDiaTrabalho(DiaTrabalho d);
@@ -9,4 +10,6 @@ public interface DiaTrabalhoDao {
     boolean deleteDiaTrabalho(int id);
     String listAllDiasTrabalho();
     String listAllPedidosPorDiaTrabalho(int id);
+    DiaTrabalho procurarDiaTrabalhoPorData(String data);
+    Pedido verificarSePedidoJaExisteEmAlgumDia(int pedidoId);
 }

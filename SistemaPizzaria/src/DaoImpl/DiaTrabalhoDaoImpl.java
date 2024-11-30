@@ -82,4 +82,30 @@ public class DiaTrabalhoDaoImpl implements DiaTrabalhoDao{
 
         return report.toString();
     }
+    
+    @Override
+    public DiaTrabalho procurarDiaTrabalhoPorData(String data){
+        if(diasDeTrabalho.isEmpty()){
+            System.out.println("Nao existe nenhum dia de trabalho cadastrado");
+        }
+        
+        for(DiaTrabalho dia: diasDeTrabalho){
+            if(dia.getData().equals(data))
+                return dia;
+        }
+        
+        return null;
+    }
+    
+    @Override 
+    public Pedido verificarSePedidoJaExisteEmAlgumDia(int pedidoId){
+        for(DiaTrabalho dia: diasDeTrabalho){
+            for(Pedido p: dia.getPedidos()){
+                if(p.getId() == pedidoId)
+                    return p;
+            }
+        }
+
+        return null;
+    }
 }
