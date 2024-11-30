@@ -17,18 +17,21 @@ public class ClienteService {
     public void adicionarCliente(){
         String cpf, nome, telefone;
         int resp = 1;
+        Cliente cliente;
         
         System.out.println("\n\tAdicionar novo Cliente");
         
         while(resp == 1){
             System.out.print("\nInforme o CPF: ");
+            scanner.nextLine();
             cpf = scanner.nextLine();
-            Cliente cliente = clienteDao.procurarClientePorCpf(cpf);
+            cliente = clienteDao.procurarClientePorCpf(cpf);
 
             if (cliente != null) {
                 System.out.println("Erro: CPF ja cadastrado");
                 System.out.print("\nO CPF inserido esta errado? Se sim, tente novamente por favor (1-sim/2-nao)");
                 resp = parseInt(scanner.nextLine());
+                break;
             } else {
                 System.out.print("\nNome Completo: ");
                 nome = scanner.nextLine();
@@ -48,6 +51,7 @@ public class ClienteService {
         System.out.println("\n\tAtualizar Cliente");
         
         System.out.print("\nInforme o CPF do Cliente que deseja atualizar: ");
+        scanner.nextLine();
         String cpf = scanner.nextLine();
         Cliente cliente = clienteDao.procurarClientePorCpf(cpf);
         
@@ -55,7 +59,7 @@ public class ClienteService {
             String nome, telefone;
             int resp;
             
-            System.out.print("\nDeseja alterar o nome?");
+            System.out.print("\nDeseja alterar o nome? (1-sim/2-nao)");
             resp = parseInt(scanner.nextLine());
             if(resp == 1){
                 System.out.print("\nInforme o nome: ");
@@ -64,7 +68,7 @@ public class ClienteService {
                 nome = cliente.getNome();
             }
             
-            System.out.print("\nDeseja alterar o telefone?");
+            System.out.print("\nDeseja alterar o telefone? (1-sim/2-nao)");
             resp = parseInt(scanner.nextLine());
             if(resp == 1){
                 System.out.print("\nInforme o telefone: ");
@@ -84,6 +88,7 @@ public class ClienteService {
         System.out.println("\n\tDeletando um Cliente");
         
         System.out.print("\nInforme o CPF do Cliente que deseja deletar: ");
+        scanner.nextLine();
         String cpf = scanner.nextLine();
         boolean resp = clienteDao.deleteCliente(cpf);
         

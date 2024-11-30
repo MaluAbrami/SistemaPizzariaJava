@@ -8,11 +8,12 @@ import sistemapizzaria.Pedido;
 import sistemapizzaria.Pizzaria;
 
 public class PizzariaDaoImpl implements PizzariaDao{
+    private Pizzaria pizzaria;
     private List<DiaTrabalho> diasTrabalhados = new ArrayList(); 
 
     @Override
     public void adicionarPizzaria(Pizzaria p) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        pizzaria = p;
     }
 
     @Override

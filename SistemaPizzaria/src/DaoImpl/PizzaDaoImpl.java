@@ -55,7 +55,8 @@ public class PizzaDaoImpl implements PizzaDao{
             report.append("\nId: ").append(p.getId())
                 .append("\nNome: ").append(p.getNome())
                 .append("\nValor: R$").append(p.getValor()).append("\n")
-                .append(p.getIngredientes()).append(" ; ");            
+                .append(p.getIngredientes()).append(" ; ")
+                .append("\nQuantidade: ").append(p.getQuantidade());            
         }
         
         return report.toString();

@@ -1,5 +1,6 @@
 package Services;
 
+import Dao.PizzariaDao;
 import DaoImpl.DiaTrabalhoDaoImpl;
 import DaoImpl.PedidoDaoImpl;
 import static java.lang.Integer.parseInt;
@@ -10,11 +11,13 @@ import sistemapizzaria.DiaTrabalho;
 import sistemapizzaria.Pedido;
 
 public class DiaTrabalhoService {
+    private PizzariaDao pizzariaDao;
     private DiaTrabalhoDaoImpl diaTrabalhoDao;
     private PedidoDaoImpl pedidoDao;
     private Scanner scanner;
     
-    public DiaTrabalhoService(DiaTrabalhoDaoImpl diaTrabalhoDao, PedidoDaoImpl pedidoDao, Scanner scanner){
+    public DiaTrabalhoService(PizzariaDao pizzariaDao, DiaTrabalhoDaoImpl diaTrabalhoDao, PedidoDaoImpl pedidoDao, Scanner scanner){
+        this.pizzariaDao = pizzariaDao;
         this.diaTrabalhoDao = diaTrabalhoDao;
         this.pedidoDao = pedidoDao;
         this.scanner = scanner;
@@ -27,12 +30,13 @@ public class DiaTrabalhoService {
         System.out.println("\n\tAdicionar novo Dia de Trabalho");
 
         System.out.print("\nInforme a Data do dia: ");
+        scanner.nextLine();
         data = scanner.nextLine();
         DiaTrabalho diaTrabalho = diaTrabalhoDao.procurarDiaTrabalhoPorData(data);
 
         if (diaTrabalho == null) {
             DiaTrabalho novoDiaTrabalho = new DiaTrabalho(data);
-
+            
             System.out.print("\nDeseja inserir algum pedido ao dia? (1-sim/2-nao)");
             resp = parseInt(scanner.nextLine());
             while (resp == 1) {
@@ -59,6 +63,7 @@ public class DiaTrabalhoService {
                 }
             }
 
+            pizzariaDao.adicionarDiaTrabalho(novoDiaTrabalho);
             System.out.println("Dia de Trabalho adicionado com sucesso!"); 
         } else{
             System.out.println("Erro: ja existe um dia registrado com essa data");
@@ -77,6 +82,7 @@ public class DiaTrabalhoService {
         System.out.println("\n\tAtualizar Dia de Trabalho");
         
         System.out.print("Informe a data do Dia de Trabalho que deseja atualizar: ");
+        scanner.nextLine();
         String data = scanner.nextLine();
         DiaTrabalho diaTrabalho = diaTrabalhoDao.procurarDiaTrabalhoPorData(data);
         

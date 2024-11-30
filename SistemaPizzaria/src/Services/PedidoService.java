@@ -4,6 +4,7 @@ import DaoImpl.PedidoDaoImpl;
 import DaoImpl.ClienteDaoImpl;
 import DaoImpl.PizzaDaoImpl;
 import static java.lang.Integer.parseInt;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import sistemapizzaria.Cliente;
@@ -16,8 +17,10 @@ public class PedidoService {
     private PedidoDaoImpl pedidoDao;
     private Scanner scanner;
     
-    public PedidoService(PedidoDaoImpl pedidoDao, Scanner scanner){
+    public PedidoService(PedidoDaoImpl pedidoDao, ClienteDaoImpl clienteDao, PizzaDaoImpl pizzaDao, Scanner scanner){
         this.pedidoDao = pedidoDao;
+        this.clienteDao = clienteDao;
+        this.pizzaDao = pizzaDao;
         this.scanner = scanner;
     }
     
@@ -29,6 +32,7 @@ public class PedidoService {
         System.out.println("\n\tAdicionar novo Pedido");
         
         System.out.print("\nInforme o CPF do Cliente: ");
+        scanner.nextLine();
         cpf = scanner.nextLine();
         cliente = clienteDao.procurarClientePorCpf(cpf);
         if(cliente != null){
@@ -63,6 +67,7 @@ public class PedidoService {
         System.out.println("\n\rAtualizar Pedido");
         
         System.out.println("Id do Pedido que deseja atualizar: ");
+        scanner.nextLine();
         int id = scanner.nextInt();
         scanner.nextLine();
         Pedido p = pedidoDao.procurarPedidoPorId(id);
@@ -70,7 +75,7 @@ public class PedidoService {
         if (p != null) {
             String cpf;
             Cliente cliente = null;
-            List<Pizza> pizzas = null;
+            List<Pizza> pizzas = new ArrayList();
             int resp;
             
             System.out.print("Alterar cliente dono do Pedido?(1-sim/2-nao)");
@@ -82,7 +87,9 @@ public class PedidoService {
                 if(cliente != null)
                     System.out.println("Cliente atualizado com sucesso!");
                 else
-                    cliente = p.getCliente();
+                    System.out.println("Erro: nao foi possivel atualizar o cliente do pedido");
+            } else{
+                cliente = null;
             }
 
             System.out.print("Alterar pizzas do pedido? (1-sim/2-nao)");
@@ -105,7 +112,7 @@ public class PedidoService {
                     }
                 }
             } else {
-                pizzas = p.getPizzas();
+                pizzas = null;
             }
             
             pedidoDao.atualizarPedido(p.getId(), cliente, pizzas);
@@ -139,8 +146,13 @@ public class PedidoService {
         System.out.println("\n\tLista dos Pedidos do Cliente");
         
         System.out.print("\nInforme o CPF do cliente: ");
+        scanner.nextLine();
         String cpf = scanner.nextLine();
+        Cliente cliente = clienteDao.procurarClientePorCpf(cpf);
         
-        System.out.println(pedidoDao.listAllPedidosPorCliente(cpf));
+        if(cliente != null)
+            System.out.println(pedidoDao.listAllPedidosPorCliente(cpf));
+        else 
+            System.out.println("Erro: cliente de CPF informado nao existe");
     }
 }

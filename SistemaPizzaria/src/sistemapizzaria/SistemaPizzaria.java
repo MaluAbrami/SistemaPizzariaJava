@@ -19,9 +19,18 @@ import java.util.Scanner;
 public class SistemaPizzaria {
 
     public static void main(String[] args) {
+        Pizzaria pizzaria = new Pizzaria();
+        
         Pizza calabresa = new Calabresa();
         Pizza caipira = new Caipira();
         Pizza quatroQueijos = new QuatroQueijos();
+        
+        Cliente malu = new Cliente("123.456.789-01", "Maria Luiza Abrami", "(12)34567-8905");
+        Pedido pedidoMalu = new Pedido();
+        pedidoMalu.adicionarCliente(malu);
+        pedidoMalu.adicionarPizza(caipira);
+        pedidoMalu.adicionarPizza(quatroQueijos);
+        DiaTrabalho primeiroDia = new DiaTrabalho("25/11/2024");
         
         Scanner scanner = new Scanner(System.in);
         
@@ -33,15 +42,19 @@ public class SistemaPizzaria {
         PizzariaDaoImpl pizzariaDao = new PizzariaDaoImpl();
         
         PizzaService pizzaService = new PizzaService(scanner, pizzaDao);
-        PedidoService pedidoService = new PedidoService(pedidoDao, scanner);
+        PedidoService pedidoService = new PedidoService(pedidoDao, clienteDao, pizzaDao, scanner);
         ClienteService clienteService = new ClienteService(clienteDao, scanner);
-        DiaTrabalhoService diaTrabalhoService = new DiaTrabalhoService(diaTrabalhoDao, pedidoDao, scanner);
+        DiaTrabalhoService diaTrabalhoService = new DiaTrabalhoService(pizzariaDao, diaTrabalhoDao, pedidoDao, scanner);
         PizzariaService pizzariaService = new PizzariaService();
         
         //ADICIONANDO AS PIZZAS
         pizzaDao.adicionarPizza(calabresa);
         pizzaDao.adicionarPizza(caipira);
         pizzaDao.adicionarPizza(quatroQueijos);
+        
+        clienteDao.adicionarCliente(malu);
+        pedidoDao.adicionarPedido(pedidoMalu);
+        diaTrabalhoDao.adicionarDiaTrabalho(primeiroDia);
         
         Menus menus = new Menus(pizzaService, pedidoService, clienteService, diaTrabalhoService, pizzariaService, scanner);
         menus.menuPrincipal();

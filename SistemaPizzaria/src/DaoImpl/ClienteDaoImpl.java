@@ -19,7 +19,6 @@ public class ClienteDaoImpl implements ClienteDao{
             if(c.getCpf().equals(cpf))
                 return c;
         }
-        System.out.println("CPF nao cadastrado");
         return null;
     }
     
@@ -53,7 +52,7 @@ public class ClienteDaoImpl implements ClienteDao{
         }
         
         for(Cliente c: clientes){
-            report.append("\nCliente de ID: ").append(c.getCpf())
+            report.append("\nCliente de CPF: ").append(c.getCpf())
                 .append("\nNome: ").append(c.getNome())
                 .append("\nTelefone: ").append(c.getTelefone());
         }

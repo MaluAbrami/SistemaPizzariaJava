@@ -26,6 +26,10 @@ public class Pedido {
         return valorPedido;
     }
     
+    public void setValorPedido(double valor) { //Para poder resetar o valor do pedido quando for atualizado
+        this.valorPedido = valor;
+    }
+    
     public void adicionarCliente(Cliente cliente){
         this.cliente = cliente;
     }
@@ -41,9 +45,5 @@ public class Pedido {
     
     public Cliente getCliente(){
         return cliente;
-    }
-    
-    public void setCliente(Cliente cliente){ //Para atualizacoes
-        this.cliente = cliente;
     }
 }

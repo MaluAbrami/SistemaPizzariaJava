@@ -53,7 +53,7 @@ public class Menus {
                 default:
                     System.out.println("Opcao invalida! Tente novamente.");
             }
-        } while (op != 5);
+        } while (op != 6);
 
         scanner.close();
     }
@@ -116,7 +116,8 @@ public class Menus {
             System.out.println("3. Cancelar Pedido");
             System.out.println("4. Listar Pedidos por Cliente");
             System.out.println("5. Listar Pedidos por Dia de Trabalho");
-            System.out.println("6. Voltar ao Menu Principal");
+            System.out.println("6. Listar Todos os Pedidos Cadastrados");
+            System.out.println("7. Voltar ao Menu Principal");
             System.out.print("Escolha uma opcao: ");
             op = scanner.nextInt();
 
@@ -134,18 +135,18 @@ public class Menus {
                     pedidoService.listarPedidosPorCliente();
                     break;
                 case 5:
-                    System.out.println("Listando Pedidos por Dia de Trabalho...");
-                    // lógica de listar pedidos por dia de trabalho
+                    
                     break;
                 case 6:
                     pedidoService.listarPedidos();
+                    break;
                 case 7:
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:
                     System.out.println("Opcao invalida! Tente novamente.");
             }
-        } while (op != 6);
+        } while (op != 7);
     }
 
     
@@ -217,7 +218,7 @@ public class Menus {
                 default:
                     System.out.println("Opcao invalida! Tente novamente.");
             }
-        } while (op != 4);
+        } while (op != 5);
         
         scanner.close();
     }

@@ -28,16 +28,20 @@ public class PedidoDaoImpl implements PedidoDao{
     public void atualizarPedido(int id, Cliente cliente, List<Pizza> pizzas) {
         Pedido p = procurarPedidoPorId(id);
         
-        if(p != null){
-            p.setCliente(cliente); //atualiza cliente
-            
-            for(Pizza pizzaParaRemover: p.getPizzas()){ //Remove pizzas antigas
-                p.getPizzas().remove(pizzaParaRemover);
+        if (p != null) {
+            if(cliente != null){ //Verifica se cliente recebeu novo valor
+                p.adicionarCliente(cliente); //Atualiza o cliente
             }
             
-            for(Pizza pizzaAtualizada: pizzas){ //Adiciona novas pizzas, o que garante que o valor do pedido também será atualizado
-                p.adicionarPizza(pizzaAtualizada);
+            if(pizzas != null){ //Verifica se as pizzas foram alteradas
+                p.getPizzas().clear();//Limpa a lista de pizzas
+                p.setValorPedido(0); //Reseta o valor do Pedido para que nao some as pizzas que foram deletadas dele
+                for (Pizza pizzaAtualizada : pizzas) { //Adiciona as novas pizzas
+                    p.adicionarPizza(pizzaAtualizada);
+                }
             }
+        } else {
+            System.out.println("Pedido não encontrado!");
         }
     }
     
@@ -67,6 +71,7 @@ public class PedidoDaoImpl implements PedidoDao{
                 for(Pizza pizza: p.getPizzas()){
                     report.append(pizza.getNome()).append(" ; ");
                 }
+                report.append("\nValor do Pedido: ").append(p.getValorPedido());
         }
         
         return report.toString();
