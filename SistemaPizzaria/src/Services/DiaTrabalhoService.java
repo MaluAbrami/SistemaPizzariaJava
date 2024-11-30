@@ -115,6 +115,21 @@ public class DiaTrabalhoService {
     }
     
     public void deletarDiaTrabalho(){
+        System.out.println("\n\tDeletando Dia de Trabalho");
         
+        System.out.print("\nInforme o ID do dia de trabalho que deseja deletar: ");
+        int id = parseInt(scanner.nextLine());
+        boolean resp = diaTrabalhoDao.deleteDiaTrabalho(id);
+        
+        if(resp){
+            System.out.println("Dia de Trabalho deletado com sucesso!");
+        } else{
+            System.out.println("Erro: nao foi possivel deletar o dia de trabalho");
+        }
+    }
+    
+    public void listarDiasTrabalho(){
+        System.out.println("\n\tLista de Todos os Dias de Trabalho");
+        System.out.println(diaTrabalhoDao.listAllDiasTrabalho());
     }
 }

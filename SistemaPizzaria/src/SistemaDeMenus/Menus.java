@@ -192,7 +192,7 @@ public class Menus {
             System.out.println("\n--- Gerenciar Dia de Trabalho ---");
             System.out.println("1. Adicionar um Dia de Trabalho");
             System.out.println("2. Atualizar um Dia de Trabalho");
-            System.out.println("3. Listar Todos os Dias de Trabalho");
+            System.out.println("3. Excluir Dia de Tranalho");
             System.out.println("4. Listar Todos os Dias de Trabalho");
             System.out.println("5. Voltar ao Menu Principal");
             System.out.print("Escolha uma opcao: ");
@@ -206,10 +206,10 @@ public class Menus {
                     diaTrabalhoService.atualizarDiaTrabalho();
                     break;
                 case 3:
-                    
+                    diaTrabalhoService.deletarDiaTrabalho();
                     break;
                 case 4:
-                    
+                    diaTrabalhoService.listarDiasTrabalho();
                     break;
                 case 5:
                     System.out.println("Voltando ao Menu Principal...");
