@@ -5,12 +5,13 @@ import java.util.List;
 
 public final class DiaTrabalho {
     private int id;
+    private static int contadorId = 0;
     private String data;
     private List<Pedido> pedidos = new ArrayList();
     private double faturamento;
 
-    public DiaTrabalho(int id, String data) {
-        this.id = id;
+    public DiaTrabalho(String data) {
+        this.id = contadorId++;
         this.data = data;
     }
 
@@ -18,7 +19,7 @@ public final class DiaTrabalho {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
