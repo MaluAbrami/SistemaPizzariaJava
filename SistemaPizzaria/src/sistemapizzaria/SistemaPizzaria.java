@@ -34,7 +34,7 @@ public class SistemaPizzaria {
         
         PizzaService pizzaService = new PizzaService(scanner, pizzaDao);
         PedidoService pedidoService = new PedidoService(pedidoDao, scanner);
-        ClienteService clienteService = new ClienteService();
+        ClienteService clienteService = new ClienteService(clienteDao, scanner);
         DiaTrabalhoService diaTrabalhoService = new DiaTrabalhoService();
         PizzariaService pizzariaService = new PizzariaService();
         

@@ -164,20 +164,16 @@ public class Menus {
 
             switch (op) {
                 case 1:
-                    System.out.println("Adicionando Cliente...");
-                    // lógica de adicionar cliente
+                    clienteService.adicionarCliente();
                     break;
                 case 2:
-                    System.out.println("Atualizando Dados do Cliente...");
-                    // lógica de atualizar cliente
+                    clienteService.atualizarCliente();
                     break;
                 case 3:
-                    System.out.println("Excluindo Cliente...");
-                    // lógica de excluir cliente
+                    clienteService.deletarCliente();
                     break;
                 case 4:
-                    System.out.println("Listando Clientes...");
-                    // lógica de listar clientes
+                    clienteService.listarClientes();
                     break;
                 case 5:
                     System.out.println("Voltando ao Menu Principal...");

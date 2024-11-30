@@ -79,4 +79,23 @@ public class ClienteService {
             System.out.println("Erro: nao foi possivel atualizar o cliente");
         }
     }
+    
+    public void deletarCliente(){
+        System.out.println("\n\tDeletando um Cliente");
+        
+        System.out.print("\nInforme o CPF do Cliente que deseja deletar: ");
+        String cpf = scanner.nextLine();
+        boolean resp = clienteDao.deleteCliente(cpf);
+        
+        if(resp){
+            System.out.println("Cliente deletado com sucesso!");
+        } else{
+            System.out.println("Erro: nao foi possivel deletar o cliente");
+        }
+    }
+    
+    public void listarClientes(){
+        System.out.println("\n\tLista de Clientes");
+        System.out.println(clienteDao.listAllClientes());
+    }
 }
