@@ -138,7 +138,7 @@ public class Menus {
                     // lógica de listar pedidos por dia de trabalho
                     break;
                 case 6:
-                    System.out.println("Listando Todos os Pedidos...");
+                    pedidoService.listarPedidos();
                 case 7:
                     System.out.println("Voltando ao Menu Principal...");
                     break;

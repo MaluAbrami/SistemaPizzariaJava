@@ -19,12 +19,18 @@ public class ClienteDaoImpl implements ClienteDao{
             if(c.getCpf().equals(cpf))
                 return c;
         }
+        System.out.println("CPF nao cadastrado");
         return null;
     }
     
     @Override
-    public void atualizarCliente(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+    public void atualizarCliente(String cpf, String nome, String telefone) {
+        Cliente cliente = procurarClientePorCpf(cpf);
+        
+        if(cliente != null){
+            cliente.setNome(nome);
+            cliente.setTelefone(telefone);
+        }
     }
     
     @Override

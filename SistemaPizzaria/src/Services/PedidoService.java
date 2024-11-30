@@ -73,7 +73,7 @@ public class PedidoService {
             List<Pizza> pizzas = null;
             int resp;
             
-            System.out.print("Alterar CPF do cliente?(1-sim/2-nao)");
+            System.out.print("Alterar cliente dono do Pedido?(1-sim/2-nao)");
             resp = parseInt(scanner.nextLine());
             if (resp == 1) {
                 System.out.print("\nInforme o CPF do Cliente: ");
