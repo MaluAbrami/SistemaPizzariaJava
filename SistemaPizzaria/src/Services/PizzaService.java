@@ -19,40 +19,34 @@ public class PizzaService {
     public void adicionarPizza(){
         String nome, ingredientes;
         double valor;
-        int quantidade, id;
-        
+        int quantidade, id, resp = 1;
+
         System.out.println("\n\tAdicionar nova Pizza");
-        
-        System.out.print("ID da Pizza: ");
-        id = scanner.nextInt();
+
+        System.out.print("\nNome da Pizza: ");
         scanner.nextLine();
-        Pizza p = pizzaDao.procurarPizzaPorId(id);
-        while(p != null){
-            System.out.println("\nID ja cadastrado!\nPressione 'Enter' para conferir os ID's ja cadastrados");
+        nome = scanner.nextLine();
+        Pizza p = pizzaDao.procurarPizzaPorNome(nome);
+        if (p != null) {
+            System.out.println("\nJa existe uma pizza cadastrada com esse nome!\nPressione 'Enter' para conferir as pizzas ja cadastradas");
             scanner.nextLine();
             System.out.println(pizzaDao.listAllPizzas());
-            System.out.println("Agora tente novamente por favor: ");
-            id = scanner.nextInt();
-            scanner.nextLine();
-            p = pizzaDao.procurarPizzaPorId(id);
+            System.out.println("Nao foi possivel adicionar uma nova pizza");
+        } else{
+            System.out.print("Valor da Pizza: ");
+            valor = parseDouble(scanner.nextLine());
+
+            System.out.print("Ingredientes: ");
+            ingredientes = scanner.nextLine();
+
+            System.out.print("Quantidade: ");
+            quantidade = parseInt(scanner.nextLine());
+
+            //ID de pizza sera definido automaticamente no DAO
+            Pizza novaPizza = new PizzaQualquer(nome, valor, ingredientes, quantidade);
+            pizzaDao.adicionarPizza(novaPizza);
+            System.out.println("Pizza adicionada com sucesso!");
         }
-        
-        System.out.print("Nome da Pizza: ");
-        nome = scanner.nextLine();
-        
-        System.out.print("Valor da Pizza: ");
-        valor = parseDouble(scanner.nextLine());
-        
-        System.out.print("Ingredientes: ");
-        ingredientes = scanner.nextLine();
-        
-        System.out.print("Quantidade: ");
-        quantidade = parseInt(scanner.nextLine());
-        
-        //ID de pizza sera definido automaticamente no DAO
-        Pizza novaPizza = new PizzaQualquer(id, nome, valor, ingredientes, quantidade);
-        pizzaDao.adicionarPizza(novaPizza);
-        System.out.println("Pizza adicionada com sucesso!");
     }
     
     public void atualizarPizza(){
@@ -74,6 +68,13 @@ public class PizzaService {
             if(resp == 1){
                 System.out.print("Novo nome: ");
                 nome = scanner.nextLine();
+                Pizza pizza = pizzaDao.procurarPizzaPorNome(nome);
+                if(pizza != null) {
+                    System.out.println("\nJa existe uma pizza cadastrada com esse nome!\nPressione 'Enter' para conferir as pizzas ja cadastradas");
+                    scanner.nextLine();
+                    System.out.println(pizzaDao.listAllPizzas());
+                    System.out.println("Nao foi possivel atualizar a pizza");
+                }
             } else {
                 nome = p.getNome();
             }

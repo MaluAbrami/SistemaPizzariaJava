@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
-    private static int contadorId = 0; //ID sera gerado de forma automatica
+    private static int contadorId = 1; //ID sera gerado de forma automatica
     private int id;
     private Cliente cliente;
     private List<Pizza> pizzas = new ArrayList();

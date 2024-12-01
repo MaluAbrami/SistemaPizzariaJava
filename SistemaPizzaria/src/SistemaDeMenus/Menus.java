@@ -219,7 +219,5 @@ public class Menus {
                     System.out.println("Opcao invalida! Tente novamente.");
             }
         } while (op != 5);
-        
-        scanner.close();
     }
 }

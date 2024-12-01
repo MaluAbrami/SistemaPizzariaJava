@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class DiaTrabalho {
     private int id;
-    private static int contadorId = 0;
+    private static int contadorId = 1;
     private String data;
     private List<Pedido> pedidos = new ArrayList();
     private double faturamento;

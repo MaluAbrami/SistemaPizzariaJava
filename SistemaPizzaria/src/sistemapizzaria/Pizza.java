@@ -2,13 +2,14 @@ package sistemapizzaria;
 
 public abstract class Pizza {
     protected int id;
+    protected static int contadorId = 1;
     protected String nome;
     protected double valor;
     protected String ingredientes;
     protected int quantidade;
     
-    public Pizza(int id, String nome, double valor, String ingredientes, int quantidade) {
-        this.id = id;
+    public Pizza(String nome, double valor, String ingredientes, int quantidade) {
+        this.id = contadorId++;
         this.nome = nome;
         this.valor = valor;
         this.ingredientes = ingredientes;

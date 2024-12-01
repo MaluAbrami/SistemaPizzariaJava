@@ -23,6 +23,15 @@ public class PizzaDaoImpl implements PizzaDao{
     }
     
     @Override
+    public Pizza procurarPizzaPorNome(String nome){
+        for(Pizza p: pizzas){
+            if(p.getNome().equals(nome))
+                return p;      
+        }
+        return null;
+    }
+    
+    @Override
     public void atualizarPizza(int id, String nome, double valor, String ingredientes, int quantidade) {
         Pizza p = procurarPizzaPorId(id);
         

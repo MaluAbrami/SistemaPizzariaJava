@@ -4,8 +4,8 @@ import sistemapizzaria.Pizza;
 
 public class PizzaQualquer extends Pizza{
     
-    public PizzaQualquer(int id, String nome, double valor, String ingredientes, int quantidade) {
-        super(id, nome, valor, ingredientes, quantidade);
+    public PizzaQualquer(String nome, double valor, String ingredientes, int quantidade) {
+        super(nome, valor, ingredientes, quantidade);
     }
     
 }

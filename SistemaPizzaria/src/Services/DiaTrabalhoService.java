@@ -63,7 +63,8 @@ public class DiaTrabalhoService {
                 }
             }
 
-            pizzariaDao.adicionarDiaTrabalho(novoDiaTrabalho);
+            diaTrabalhoDao.adicionarDiaTrabalho(novoDiaTrabalho);
+            pizzariaDao.adicionarDiaTrabalho(novoDiaTrabalho); //Adiciona automaticamente dia trabalho a pizzaria
             System.out.println("Dia de Trabalho adicionado com sucesso!"); 
         } else{
             System.out.println("Erro: ja existe um dia registrado com essa data");
@@ -114,6 +115,7 @@ public class DiaTrabalhoService {
             }
             
             diaTrabalhoDao.atualizarDiaTrabalho(diaTrabalho.getId(), pedidos);
+            pizzariaDao.atualizarPizzaria(diaTrabalho); //Atualiza dia trabalho automaticamente a pizzaria
             System.out.println("Dia de trabalho atualizado com sucesso!"); 
         } else{
             System.out.println("Erro: nao foi possivel atualizar o dia de trabalho");

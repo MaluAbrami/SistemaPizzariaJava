@@ -17,8 +17,13 @@ public class PizzariaDaoImpl implements PizzariaDao{
     }
 
     @Override
-    public void atualizarPizzaria(Pizzaria p) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void atualizarPizzaria(DiaTrabalho d) {
+        for (DiaTrabalho dia : diasTrabalhados) {
+            if (dia.getId() == d.getId()) {
+                diasTrabalhados.remove(dia);
+                adicionarDiaTrabalho(d);
+            }
+        }
     }
 
     @Override
@@ -36,17 +41,16 @@ public class PizzariaDaoImpl implements PizzariaDao{
         
         for(DiaTrabalho d: diasTrabalhados){
             report.append("\nID do dia: ").append(d.getId())
-                    .append("\nData: ").append(d.getData())
+                    .append("; Data: ").append(d.getData())
                     .append("\n\tPedidos do dia:");
                     for(Pedido p: d.getPedidos()){
-                        report.append("\n\nID do pedido: ").append(p.getId())
-                                .append("\nDono do Pedido: ").append(p.getCliente().getNome())
-                                .append("\nValor do Pedido: ").append(p.getValorPedido());
+                        report.append("\nID do pedido: ").append(p.getId())
+                                .append("; Dono do Pedido: ").append(p.getCliente().getNome())
+                                .append("; Valor do Pedido: ").append(p.getValorPedido());
                         faturamentoTotal += p.getValorPedido();
-                    }
-                    report.append("\n\tFaturamento total da Pizzaria: ").append(faturamentoTotal);
-                    
+                    }          
         }
+        report.append("\nFaturamento total da Pizzaria: ").append(faturamentoTotal);
         
         return report.toString();
     }

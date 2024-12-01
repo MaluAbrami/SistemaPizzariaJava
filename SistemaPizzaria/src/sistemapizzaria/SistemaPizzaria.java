@@ -45,7 +45,7 @@ public class SistemaPizzaria {
         PedidoService pedidoService = new PedidoService(pedidoDao, clienteDao, pizzaDao, scanner);
         ClienteService clienteService = new ClienteService(clienteDao, scanner);
         DiaTrabalhoService diaTrabalhoService = new DiaTrabalhoService(pizzariaDao, diaTrabalhoDao, pedidoDao, scanner);
-        PizzariaService pizzariaService = new PizzariaService();
+        PizzariaService pizzariaService = new PizzariaService(pizzariaDao);
         
         //ADICIONANDO AS PIZZAS
         pizzaDao.adicionarPizza(calabresa);
@@ -55,6 +55,7 @@ public class SistemaPizzaria {
         clienteDao.adicionarCliente(malu);
         pedidoDao.adicionarPedido(pedidoMalu);
         diaTrabalhoDao.adicionarDiaTrabalho(primeiroDia);
+        pizzariaDao.adicionarDiaTrabalho(primeiroDia);
         
         Menus menus = new Menus(pizzaService, pedidoService, clienteService, diaTrabalhoService, pizzariaService, scanner);
         menus.menuPrincipal();
