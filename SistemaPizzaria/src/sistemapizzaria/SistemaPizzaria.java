@@ -55,6 +55,7 @@ public class SistemaPizzaria {
         clienteDao.adicionarCliente(malu);
         pedidoDao.adicionarPedido(pedidoMalu);
         diaTrabalhoDao.adicionarDiaTrabalho(primeiroDia);
+        primeiroDia.adicionarPedido(pedidoMalu);
         pizzariaDao.adicionarDiaTrabalho(primeiroDia);
         
         Menus menus = new Menus(pizzaService, pedidoService, clienteService, diaTrabalhoService, pizzariaService, scanner);

@@ -113,7 +113,7 @@ public class Menus {
             System.out.println("\n--- Gerenciar Pedidos ---");
             System.out.println("1. Criar Pedido");
             System.out.println("2. Atualizar Pedido");
-            System.out.println("3. Cancelar Pedido");
+            System.out.println("3. Excluir Pedido");
             System.out.println("4. Listar Pedidos por Cliente");
             System.out.println("5. Listar Pedidos por Dia de Trabalho");
             System.out.println("6. Listar Todos os Pedidos Cadastrados");
@@ -135,7 +135,7 @@ public class Menus {
                     pedidoService.listarPedidosPorCliente();
                     break;
                 case 5:
-                    
+                    //LISTAR PEDIDOS POR DIA DE TRABALHO
                     break;
                 case 6:
                     pedidoService.listarPedidos();

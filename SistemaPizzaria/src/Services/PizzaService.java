@@ -19,7 +19,7 @@ public class PizzaService {
     public void adicionarPizza(){
         String nome, ingredientes;
         double valor;
-        int quantidade, id, resp = 1;
+        int quantidade, resp = 1;
 
         System.out.println("\n\tAdicionar nova Pizza");
 
@@ -32,21 +32,31 @@ public class PizzaService {
             scanner.nextLine();
             System.out.println(pizzaDao.listAllPizzas());
             System.out.println("Nao foi possivel adicionar uma nova pizza");
-        } else{
-            System.out.print("Valor da Pizza: ");
-            valor = parseDouble(scanner.nextLine());
-
-            System.out.print("Ingredientes: ");
-            ingredientes = scanner.nextLine();
-
-            System.out.print("Quantidade: ");
-            quantidade = parseInt(scanner.nextLine());
-
-            //ID de pizza sera definido automaticamente no DAO
-            Pizza novaPizza = new PizzaQualquer(nome, valor, ingredientes, quantidade);
-            pizzaDao.adicionarPizza(novaPizza);
-            System.out.println("Pizza adicionada com sucesso!");
+            return;
         }
+        
+        System.out.print("Valor da Pizza: ");
+        valor = parseDouble(scanner.nextLine());
+        if (valor < 0) {
+            System.out.println("Erro: valor invalido!\nNao foi possivel adicionar a nova pizza");
+            return;
+        }
+
+        System.out.print("Ingredientes: ");
+        ingredientes = scanner.nextLine();
+
+        System.out.print("Quantidade: ");
+        quantidade = parseInt(scanner.nextLine());
+        if (quantidade < 0) {
+            System.out.println("Erro: quantidade de pizzas nao pode ser negativa\nNao foi possivel adicionar a nova pizza");
+            return;
+        }
+
+        //ID de pizza sera definido automaticamente no DAO
+        Pizza novaPizza = new PizzaQualquer(nome, valor, ingredientes, quantidade);
+        pizzaDao.adicionarPizza(novaPizza);
+        System.out.println("Pizza adicionada com sucesso!");
+        resp = 2; //Parada do loop while
     }
     
     public void atualizarPizza(){
@@ -60,7 +70,7 @@ public class PizzaService {
         if(p != null){
             String nome, ingredientes;
             double valor;
-            int quantidade;
+            int quantidade = 0;
             
             System.out.print("Alterar nome? (1-sim/2-nao)");
             int resp = scanner.nextInt();
@@ -74,6 +84,7 @@ public class PizzaService {
                     scanner.nextLine();
                     System.out.println(pizzaDao.listAllPizzas());
                     System.out.println("Nao foi possivel atualizar a pizza");
+                    return;
                 }
             } else {
                 nome = p.getNome();
@@ -103,8 +114,12 @@ public class PizzaService {
             resp = scanner.nextInt();
             scanner.nextLine();
             if (resp == 1) {
-                System.out.print("Nova quantidade: ");
-                quantidade = parseInt(scanner.nextLine());
+                    System.out.print("Nova quantidade: ");
+                    quantidade = parseInt(scanner.nextLine());
+                    if (quantidade < 0) {
+                        System.out.println("Erro: quantidade de pizzas nao pode ser negativa\nNao foi possivel atualizar a pizza");
+                        return;
+                    }
             } else {
                 quantidade = p.getQuantidade();
             }

@@ -44,6 +44,7 @@ public class PedidoService {
                 Pizza pizza = pizzaDao.procurarPizzaPorId(parseInt(scanner.nextLine()));
                 if(pizza != null){
                     novoPedido.adicionarPizza(pizza); //Adiciona Pizza
+                    pizza.setQuantidade(pizza.getQuantidade() - 1); //Diminui 1 na quantidade de pizzas
                     System.out.println("Pizza de " + pizza.getNome() + " adicionada ao Pedido!");
                     System.out.print("\nQuer adicionar mais alguma pizza ao pedido? (1-sim/2-nao)");
                     resp = parseInt(scanner.nextLine());

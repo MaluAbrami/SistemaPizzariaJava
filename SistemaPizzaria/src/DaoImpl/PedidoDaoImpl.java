@@ -38,6 +38,8 @@ public class PedidoDaoImpl implements PedidoDao{
                 p.setValorPedido(0); //Reseta o valor do Pedido para que nao some as pizzas que foram deletadas dele
                 for (Pizza pizzaAtualizada : pizzas) { //Adiciona as novas pizzas
                     p.adicionarPizza(pizzaAtualizada);
+                    int novaQuantidade = pizzaAtualizada.getQuantidade() - 1;
+                    pizzaAtualizada.setQuantidade(novaQuantidade); //Diminui a quantidade das pizzas em 1
                 }
             }
         } else {
@@ -65,8 +67,8 @@ public class PedidoDaoImpl implements PedidoDao{
         }
         
         for(Pedido p: pedidos){
-            report.append("\nPedido de ID: ").append(p.getId()).append("\n")
-                .append("Cliente: ").append(p.getCliente().getNome())
+            report.append("\nPedido de ID: ").append(p.getId())
+                .append(", Cliente: ").append(p.getCliente().getNome())
                 .append("\nPizzas: ");
                 for(Pizza pizza: p.getPizzas()){
                     report.append(pizza.getNome()).append(" ; ");
@@ -99,8 +101,8 @@ public class PedidoDaoImpl implements PedidoDao{
         }
         
         for(Pedido p: pedidosCliente){
-            report.append("\nPedido de ID: ").append(p.getId()).append("\n")
-                .append("Valor do Pedido: ").append(p.getValorPedido())
+            report.append("\nPedido de ID: ").append(p.getId())
+                .append("; Valor do Pedido: ").append(p.getValorPedido())
                 .append("\nPizzas: ");
                 for(Pizza pizza: p.getPizzas()){
                     report.append(pizza.getNome()).append(" ; ");

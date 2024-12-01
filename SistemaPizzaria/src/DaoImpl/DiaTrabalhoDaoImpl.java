@@ -75,8 +75,8 @@ public class DiaTrabalhoDaoImpl implements DiaTrabalhoDao{
         }
 
         report.append("Dia de ID: ").append(dia.getId())
-            .append("\nData: ").append(dia.getData())
-            .append("\nQuantidade de Pedidos: ").append(dia.getPedidos().size())
+            .append(", Data: ").append(dia.getData())
+            .append(", Quantidade de Pedidos: ").append(dia.getPedidos().size())
             .append("\nPedidos: ").append("\n");
             for(Pedido p: dia.getPedidos()){
                 report.append("Pedido ID: ").append(p.getId())

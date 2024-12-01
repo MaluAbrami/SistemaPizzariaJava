@@ -62,10 +62,10 @@ public class PizzaDaoImpl implements PizzaDao{
         
         for(Pizza p: pizzas){
             report.append("\nId: ").append(p.getId())
-                .append("\nNome: ").append(p.getNome())
-                .append("\nValor: R$").append(p.getValor()).append("\n")
-                .append(p.getIngredientes()).append(" ; ")
-                .append("\nQuantidade: ").append(p.getQuantidade());            
+                .append(", Nome: ").append(p.getNome())
+                .append(", Valor: R$").append(p.getValor())
+                .append(", Quantidade: ").append(p.getQuantidade()).append("\n")
+                .append(p.getIngredientes()).append(" ; ");            
         }
         
         return report.toString();
