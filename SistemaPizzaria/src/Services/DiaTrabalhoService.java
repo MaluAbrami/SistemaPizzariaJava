@@ -141,4 +141,11 @@ public class DiaTrabalhoService {
         System.out.println("\n\tLista de Todos os Dias de Trabalho");
         System.out.println(diaTrabalhoDao.listAllDiasTrabalho());
     }
+    
+    public void listarPedidosPorDiaTrabalho(){
+        System.out.println("\n\tLista de Todos os Pedidos do Dia de Trabalho");
+        System.out.print("Informe o ID do dia que deseja visualizar os pedidos: ");
+        int id = scanner.nextInt();
+        System.out.println(diaTrabalhoDao.listAllPedidosPorDiaTrabalho(id));
+    }
 }

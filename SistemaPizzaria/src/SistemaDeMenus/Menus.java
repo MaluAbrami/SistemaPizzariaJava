@@ -115,9 +115,8 @@ public class Menus {
             System.out.println("2. Atualizar Pedido");
             System.out.println("3. Excluir Pedido");
             System.out.println("4. Listar Pedidos por Cliente");
-            System.out.println("5. Listar Pedidos por Dia de Trabalho");
-            System.out.println("6. Listar Todos os Pedidos Cadastrados");
-            System.out.println("7. Voltar ao Menu Principal");
+            System.out.println("5. Listar Todos os Pedidos Cadastrados");
+            System.out.println("6. Voltar ao Menu Principal");
             System.out.print("Escolha uma opcao: ");
             op = scanner.nextInt();
 
@@ -135,12 +134,9 @@ public class Menus {
                     pedidoService.listarPedidosPorCliente();
                     break;
                 case 5:
-                    //LISTAR PEDIDOS POR DIA DE TRABALHO
-                    break;
-                case 6:
                     pedidoService.listarPedidos();
                     break;
-                case 7:
+                case 6:
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:
@@ -195,7 +191,8 @@ public class Menus {
             System.out.println("2. Atualizar um Dia de Trabalho");
             System.out.println("3. Excluir Dia de Tranalho");
             System.out.println("4. Listar Todos os Dias de Trabalho");
-            System.out.println("5. Voltar ao Menu Principal");
+            System.out.println("5. Listar Todos os Pedidos Por Dia de Trabalho");
+            System.out.println("6. Voltar ao Menu Principal");
             System.out.print("Escolha uma opcao: ");
             op = scanner.nextInt();
 
@@ -213,6 +210,9 @@ public class Menus {
                     diaTrabalhoService.listarDiasTrabalho();
                     break;
                 case 5:
+                    diaTrabalhoService.listarPedidosPorDiaTrabalho();
+                    break;
+                case 6:
                     System.out.println("Voltando ao Menu Principal...");
                     break;
                 default:

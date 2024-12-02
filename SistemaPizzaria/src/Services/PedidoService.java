@@ -1,5 +1,6 @@
 package Services;
 
+import Dao.DiaTrabalhoDao;
 import DaoImpl.PedidoDaoImpl;
 import DaoImpl.ClienteDaoImpl;
 import DaoImpl.PizzaDaoImpl;
@@ -75,7 +76,7 @@ public class PedidoService {
         
         if (p != null) {
             String cpf;
-            Cliente cliente = null;
+            Cliente cliente;
             List<Pizza> pizzas = new ArrayList();
             int resp;
             
