@@ -127,11 +127,13 @@ public class DiaTrabalhoService {
         
         System.out.print("\nInforme o ID do dia de trabalho que deseja deletar: ");
         int id = scanner.nextInt();
+        DiaTrabalho diaParaDeletar = diaTrabalhoDao.procurarDiaTrabalhoPorId(id);
         scanner.nextLine();
         boolean resp = diaTrabalhoDao.deleteDiaTrabalho(id);
         
         if(resp){
             System.out.println("Dia de Trabalho deletado com sucesso!");
+            pizzariaDao.deletarDiaTrabalho(diaParaDeletar);
         } else{
             System.out.println("Erro: nao foi possivel deletar o dia de trabalho");
         }

@@ -142,7 +142,7 @@ public class Menus {
                 default:
                     System.out.println("Opcao invalida! Tente novamente.");
             }
-        } while (op != 7);
+        } while (op != 6);
     }
 
     
@@ -218,6 +218,6 @@ public class Menus {
                 default:
                     System.out.println("Opcao invalida! Tente novamente.");
             }
-        } while (op != 5);
+        } while (op != 6);
     }
 }

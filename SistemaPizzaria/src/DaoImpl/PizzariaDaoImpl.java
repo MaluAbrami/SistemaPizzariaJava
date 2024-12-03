@@ -32,6 +32,11 @@ public class PizzariaDaoImpl implements PizzariaDao{
     }
     
     @Override
+    public void deletarDiaTrabalho(DiaTrabalho d) {
+        diasTrabalhados.remove(d);
+    }
+    
+    @Override
     public String obterRelatorioDiasTrabalhados() {
         StringBuilder report = new StringBuilder();
         double faturamentoTotal = 0;
@@ -40,7 +45,7 @@ public class PizzariaDaoImpl implements PizzariaDao{
             System.out.println("Nao existe nenhum dia de trabalho");
         
         for(DiaTrabalho d: diasTrabalhados){
-            report.append("\nID do dia: ").append(d.getId())
+            report.append("\n\nID do dia: ").append(d.getId())
                     .append("; Data: ").append(d.getData())
                     .append("\n\tPedidos do dia:");
                     for(Pedido p: d.getPedidos()){

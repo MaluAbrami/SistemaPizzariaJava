@@ -96,6 +96,10 @@ public class PizzaService {
             if(resp == 1){
                 System.out.print("Novo valor: ");
                 valor = parseDouble(scanner.nextLine());
+                if(valor < 0){
+                    System.out.println("Erro: valor invalido\nNao foi possivel atualizar a pizza");
+                    return;
+                }
             } else {
                 valor = p.getValor();
             }
